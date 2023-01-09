@@ -1,6 +1,4 @@
-import fs from 'node:fs'
 import path from 'node:path'
-import { after } from 'node:test'
 
 import { join } from 'desm'
 import { expect, test } from 'vitest'
