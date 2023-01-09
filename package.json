@@ -1,0 +1,8 @@
+{
+	"name": "@is-file-esm-ts/monorepo",
+	"devDependencies": {
+		"@types/node": "^18.11.18",
+		"lionconfig": "^2.2.21",
+		"typescript": "^4.9.4"
+	}
+}
