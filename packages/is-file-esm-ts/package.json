@@ -1,6 +1,6 @@
 {
 	"name": "is-file-esm-ts",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Determines if a Node file is a module.",
 	"license": "MIT",
 	"repository": {
