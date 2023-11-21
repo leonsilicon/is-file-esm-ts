@@ -1,6 +1,6 @@
 import path from 'node:path'
 
-import { type ReadResult, readPackageUp, readPackageUpSync } from 'read-pkg-up'
+import { readPackageUp, readPackageUpSync, type ReadResult } from 'read-pkg-up'
 
 function isFileEsmHelper(filePath: string, pkg: ReadResult | undefined) {
 	if (pkg === undefined) {
@@ -28,7 +28,7 @@ function isFileEsmHelper(filePath: string, pkg: ReadResult | undefined) {
 		return false
 	} else {
 		throw new Error(
-			`Invalid package.json type: ${String(pkg.packageJson.type)}`
+			`Invalid package.json type: ${String(pkg.packageJson.type)}`,
 		)
 	}
 }
