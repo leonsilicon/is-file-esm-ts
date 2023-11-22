@@ -1,8 +1,8 @@
 import path from 'node:path'
 
-import { readPackageUp, readPackageUpSync, type ReadResult } from 'read-pkg-up'
+import readPackageUp from 'read-pkg-up'
 
-function isFileEsmHelper(filePath: string, pkg: ReadResult | undefined) {
+function isFileEsmHelper(filePath: string, pkg: any) {
 	if (pkg === undefined) {
 		throw new Error('package.json not found')
 	}
@@ -22,7 +22,6 @@ function isFileEsmHelper(filePath: string, pkg: ReadResult | undefined) {
 		return true
 	} else if (
 		pkg.packageJson.type === 'commonjs' ||
-		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- User might have an invalid type in their `package.json` file
 		pkg.packageJson.type === undefined
 	) {
 		return false
@@ -39,6 +38,6 @@ export async function isFileEsm(filePath: string) {
 }
 
 export function isFileEsmSync(filePath: string) {
-	const pkg = readPackageUpSync({ cwd: path.dirname(filePath) })
+	const pkg = readPackageUp.sync({ cwd: path.dirname(filePath) })
 	return isFileEsmHelper(filePath, pkg)
 }

@@ -22,7 +22,7 @@
 		"test": "vitest run"
 	},
 	"dependencies": {
-		"read-package-up": "^11.0.0"
+		"read-pkg-up": "^7.0.1"
 	},
 	"devDependencies": {
 		"@tunnel/tun": "^0.2.3",
