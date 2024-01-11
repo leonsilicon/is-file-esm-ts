@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { findUp, findUpSync } from 'find-up';
+import findUp from 'find-up';
 
 function isFileEsmHelper(filePath: string, pkg: any) {
 	if (pkg === undefined) {
@@ -45,7 +45,7 @@ export async function isFileEsm(filePath: string) {
 export function isFileEsmSync(filePath: string) {
 	const pkg = JSON.parse(
 		fs.readFileSync(
-			findUpSync('package.json', { cwd: path.dirname(filePath) })!,
+			findUp.sync('package.json', { cwd: path.dirname(filePath) })!,
 			'utf8'
 		)
 	);
