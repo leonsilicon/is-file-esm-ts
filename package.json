@@ -1,9 +1,18 @@
 {
 	"name": "is-file-esm-ts",
-	"root": true,
-	"version": "0.1.1",
+	"version": "0.1.3",
 	"description": "Determines if a Node file is a module.",
 	"license": "MIT",
+	"exports": {
+		"require": {
+			"types": "./dist/$.d.cts",
+			"default": "./dist/$.cjs"
+		},
+		"import": {
+			"types": "./dist/$.d.mts",
+			"default": "./dist/$.mjs"
+		}
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/leondreamed/is-file-esm-ts.git"
@@ -15,28 +24,23 @@
 		"url": "https://leondreamed.com"
 	},
 	"type": "module",
-	"exports": "./src/index.ts",
 	"scripts": {
-		"build": "tun ./scripts/build.ts",
-		"start": "tun ./src/index.ts",
+		"build": "pkgroll",
 		"test": "vitest run"
 	},
 	"dependencies": {
-		"read-pkg-up": "^7.0.1"
+		"find-up": "^7.0.0"
 	},
 	"devDependencies": {
 		"@tunnel/prettier-config": "0.0.0",
-		"@tunnel/tun": "^0.2.3",
+		"@tunnel/tsconfig": "0.0.0",
+		"@tunnel/tun": "^0.3.6",
 		"@types/node": "^20.9.3",
 		"desm": "^1.3.0",
+		"dprint": "^0.45.0",
 		"execa": "^8.0.1",
-		"lionconfig": "^3.1.2",
+		"pkgroll": "^2.0.1",
 		"vitest": "^1.1.3",
-		"typescript": "^5.3.3",
-		"find-up": "^7.0.0"
-	},
-	"publishConfig": {
-		"directory": "dist"
-	},
-	"prettier": "@tunnel/prettier-config"
+		"typescript": "^5.3.3"
+	}
 }

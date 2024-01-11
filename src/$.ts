@@ -18,16 +18,16 @@ function isFileEsmHelper(filePath: string, pkg: any) {
 
 	if (extensionType === 'c') return false;
 	if (extensionType === 'm') return true;
-	if (pkg.packageJson.type === 'module') {
+	if (pkg.type === 'module') {
 		return true;
 	} else if (
-		pkg.packageJson.type === 'commonjs' ||
-		pkg.packageJson.type === undefined
+		pkg.type === 'commonjs' ||
+		pkg.type === undefined
 	) {
 		return false;
 	} else {
 		throw new Error(
-			`Invalid package.json type: ${String(pkg.packageJson.type)}`
+			`Invalid package.json type: ${String(pkg.type)}`
 		);
 	}
 }
